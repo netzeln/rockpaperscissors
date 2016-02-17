@@ -6,23 +6,18 @@
   </head>
   <body>
     <h1>Rock Paper Scissors!</h1>
-      <form action="/play" method="get">
+    <h2>Ready Player One?</h2>
+      <form action="/player2" method="post">
         <label for="player1">Player 1 Choice</label>
         <select name="player1">
           <option value="rock" selected>Rock</option>
           <option value="paper">Paper</option>
           <option value="scissors">Scissors</option>
         </select>
-        <label for="player2">Player 2 Choice</label>
-        <select name="player2">
-          <option value="rock" selected>Rock</option>
-          <option value="paper">Paper</option>
-          <option value="scissors">Scissors</option>
-        </select>
-        <button type="submit">Play!</button>
+
+        <button type="submit">Pass the Turn</button>
       </form>
 
-      <h2>Results</h2>
-        {{ rps.playGame }}
+
   </body>
 </html>
