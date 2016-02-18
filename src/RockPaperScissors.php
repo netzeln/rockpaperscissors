@@ -33,6 +33,7 @@
 
 			function playGame ()
 			{
+
 				if ($this->getPlayerOne() == "rock" && $this->getPlayerTwo() == "scissors" || $this->getPlayerOne() == "paper" && $this->getPlayerTwo() == "rock" || $this->getPlayerOne() == "scissors" && $this->getPlayerTwo() == "paper")
 				{
 					return "Player 1";
