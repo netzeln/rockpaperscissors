@@ -34,7 +34,7 @@
 			function playGame ()
 			{
 
-				if ($this->getPlayerOne() == "rock" && $this->getPlayerTwo() == "scissors" || $this->getPlayerOne() == "paper" && $this->getPlayerTwo() == "rock" || $this->getPlayerOne() == "scissors" && $this->getPlayerTwo() == "paper")
+				if ($this->getPlayerOne() == "rock" && ($this->getPlayerTwo() == "scissors" ||$this->getPlayerTwo()== "lizard") || $this->getPlayerOne() == "paper" && ($this->getPlayerTwo() == "rock" || $this->getPlayerTwo() == "spock")|| $this->getPlayerOne() == "scissors" && ($this->getPlayerTwo() == "paper" || $this->getPlayerTwo() =="lizard") || $this->getPlayerone() == "spock" && ($this->getPlayerTwo() == "scissors" || $this->getPlayerTwo() == "rock") || $this->getPlayerOne() == "lizard" && ($this->getPlayerTwo() == "spock" || $this->getPlayerTwo() == "paper"))
 				{
 					return "Player 1";
 				}
