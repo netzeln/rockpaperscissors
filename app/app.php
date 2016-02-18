@@ -10,12 +10,25 @@
 		$_SESSION['choices'] = array();
 	}
 
+	if(empty($_SESSION['players']))
+	{
+		$_SESSION['players'] = array();
+	}
+
 	$app = new Silex\Application();
 
 	$app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views'));
 
 	$app->get('/', function() use ($app){
 		$_SESSION['choices'] = array();
+		var_dump($_SESSION['choices']);
+		return $app['twig']->render('game.html.twig');
+	});
+
+	$app->post('/newplayers', function() use ($app){
+		$player_one = new Player($_POST['name1']);
+		$player_two = new Player($_POST['name2']);
+		array_push($_SESSION['choices'], $_POST['player1']);
 		var_dump($_SESSION['choices']);
 		return $app['twig']->render('game.html.twig');
 	});

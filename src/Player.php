@@ -33,9 +33,9 @@
 				return $this->score;
 			}
 
-			function playGame ()
+			function addPoint()
 			{
-
+					$this->score = $this->score + 1;
 
 			}
 
