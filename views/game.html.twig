@@ -26,14 +26,15 @@
             {% if players is not empty %}
                 <h2>FIGHT!</h2>
 
-            {% endif %}
+
         </div>
 
 
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h2>Player One</h2>
+                    <h2>{{player1}}</h2>
+
                     <form action="/player1" method="post">
                       <label for="player1">Player 1 Choice</label>
                       <select name="player1">
@@ -43,9 +44,11 @@
                         <option value="lizard">Lizard</option>
                         <option value="spock">Spock</option>
                       </select>
-
+                      {% if result is empty %}
                       <button type="submit">Choose</button>
+                      {% endif %}
                     </form>
+
                     <h2>Score: {{player1score}}</h2>
 
 
@@ -53,38 +56,44 @@
                 <div class="col-md-2">
 
                     <form  action="/results" method="post">
-                        {% if chosen[0] is not empty %}
-                        <h4>Ready Player One</h4>
-                        {% endif %}
+                        {% if result is empty %}
+                        <h4>Player 1: {% if chosen[0] is not empty %}
+                        Ready!
+                        {% endif %}</h4>
+
                         <button type="submit" name="button" class="btn btn-primary">SHOOT</button>
-                        {% if chosen[1] is not empty %}
-                        <h4>Ready Player Two</h4>
+
+                        <h4>Player 2:{% if chosen[1] is not empty %}
+                        Ready!
+                        {% endif %}</h4>
                         {% endif %}
                     </form>
 
-                    <h3>Play Another Round?</h3>
-
-                        <a href="/newgame"><button type="submit" name="button" class=" btn btn-success">NEWGAME</button></a>
-
-
                     {% if result is not empty %}
+
+
                         {% if result != "It is a tie" %}
                         <h2>{{result}} WINS!</h2>
                         {% endif %}
 
                         {% if result == "It is a tie" %}
                         <h2>{{result}}!!!!</h2>
+
                         {% endif %}
+                        <!-- <h3>Play Another Round?</h3> -->
+                            <a href="/newgame"><button type="submit" name="button" class=" btn btn-success">NEWGAME</button></a>
 
+
+                            <h4> OR:</h4>
+                        <form  action="/reset_all" method="post">
+                            <button type="submit" name="button" class="btn btn-danger">CLEAR ALL</button>
+                        </form>
+                        <h4>WARNING: This will erase start a brand new match</h4>
                     {% endif %}
-                    <h4>WARNING: This will erase start a brand new match</h4>
-                    <form  action="/reset_all" method="post">
-                        <button type="submit" name="button" class="btn btn-danger">CLEAR ALL</button>
-                    </form>
-
                 </div>
                 <div class="col-md-4">
-                    <h2>Player two</h2>
+                    <h2>{{ player2}}</h2>
+
                     <form action="/player2" method="post">
 
                       <label for="player2">Player 2 Choice</label>
@@ -95,12 +104,18 @@
                         <option value="lizard">Lizard</option>
                         <option value="spock">Spock</option>
                       </select>
+                      {% if result is empty %}
                       <button type="submit">Choose</button>
+                      {% endif %}
                   </form>
-                  <h2>Score: {{player2score}}</h2>
+
+                 
+
+                   <h2>Score: {{player2score}}</h2>
 
                 </div>
             </div>
          </div>
+         {% endif %}
   </body>
 </html>

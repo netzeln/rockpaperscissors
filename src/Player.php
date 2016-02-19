@@ -21,9 +21,9 @@
 
 			function getName()
 			{
-				return $this->choice;
+				return $this->name;
 			}
-			
+
 			function setChoice($choice)
 			{
 				$this->choice = $choice;
