@@ -1,12 +1,13 @@
 <?php
-	 class RockPaperScissors
+	 class Player
 		{
 			private $name;
 			private $score;
 
-			function __construct($name,)
+			function __construct($name)
 			{
 				$this->name = $name;
+				$this->choice = "";
 				$this->score = 0;
 
 			}
@@ -20,7 +21,17 @@
 
 			function getName()
 			{
-				return $this->name;
+				return $this->choice;
+			}
+			
+			function setChoice($choice)
+			{
+				$this->choice = $choice;
+			}
+
+			function getChoice()
+			{
+				return $this->choice;
 			}
 
 			function setScore($score)
